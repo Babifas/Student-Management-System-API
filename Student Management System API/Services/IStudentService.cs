@@ -9,5 +9,6 @@ namespace Student_Management_System_API.Services
         void AddStudent(StudentUpdateDto student);
         void UpdateStudent(StudentUpdateDto student, int id);
         void DeleteStudent(int id);
+        List<Student> GetStudentsByName(string name);
     }
 }

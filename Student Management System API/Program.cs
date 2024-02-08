@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Student_Management_System_API.Data;
 using Student_Management_System_API.Services;
+using System.Text.Json.Serialization;
 
 namespace Student_Management_System_API
 {
@@ -23,7 +24,11 @@ namespace Student_Management_System_API
             builder.Services.AddScoped<ICourseService, CourseService>();
             builder.Services.AddScoped<IStudentService, StudentService>();
             builder.Services.AddAutoMapper(typeof(Program).Assembly);
+            builder.Services.AddControllers().AddJsonOptions(option =>
+            {
+                option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -42,6 +42,11 @@ namespace Student_Management_System_API.Controllers
             _studentService.DeleteStudent(id);
             return Ok("deleted successfully");
         }
+        [HttpGet("GetStudentByName")]
+        public IActionResult GetStudentByName(string name)
+        {
+            return Ok(_studentService.GetStudentsByName(name));
+        }
 
     }
 }

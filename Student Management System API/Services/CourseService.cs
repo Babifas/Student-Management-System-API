@@ -17,21 +17,21 @@ namespace Student_Management_System_API.Services
         public List<Course> GetAllCourses()
         {
             var res=_contex.Courses.Include(c=>c.students).ToList();
-            var courses=res.Select(c => new Course
-            {
-                CourseId = c.CourseId,
-                CourseName = c.CourseName,
-                TeacherName = c.TeacherName,
-                students = c.students.Select(s => new Student
-                {
-                    studentId=s.studentId,
-                    Name = s.Name,
-                    Age = s.Age,
-                    CourseId = s.CourseId,
+            //var courses = res.Select(c => new Course
+            //{
+            //    CourseId = c.CourseId,
+            //    CourseName = c.CourseName,
+            //    TeacherName = c.TeacherName,
+            //    students = c.students.Select(s => new Student
+            //    {
+            //        studentId = s.studentId,
+            //        Name = s.Name,
+            //        Age = s.Age,
+            //        CourseId = s.CourseId,
 
-                }).ToList(),
-            });
-            return courses.ToList();
+            //    }).ToList(),
+            //});
+            return res;
         }
         public void AddCourse(CourseUpadateDto coursedto)
         {

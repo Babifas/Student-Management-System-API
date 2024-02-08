@@ -18,8 +18,7 @@ namespace Student_Management_System_API.Data
                .HasOne(s => s.Course)
                .WithMany(c => c.students)
                .HasForeignKey(s => s.CourseId);
-               
-                
+                      
         }
     }
 }

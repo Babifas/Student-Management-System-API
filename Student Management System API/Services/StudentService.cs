@@ -46,5 +46,12 @@ namespace Student_Management_System_API.Services
             _context.Students.Remove(std);
             _context.SaveChanges();
         }
+
+        public List<Student> GetStudentsByName(string name)
+        {
+            var std=_context.Students.Where(x => x.Name.Contains(name)).ToList();
+            return std;
+
+        }
     }
 }
